@@ -47,27 +47,25 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     
-//    //MARK: - Networking
-//    /***************************************************************/
-//    
-//    func getWeatherData(url: String, parameters: [String : String]) {
-//        
-//        Alamofire.request(url, method: .get, parameters: parameters)
-//            .responseJSON { response in
-//                if response.result.isSuccess {
-//
-//                    print("Sucess! Got the weather data")
-//                    let weatherJSON : JSON = JSON(response.result.value!)
-//
-//                    self.updateWeatherData(json: weatherJSON)
-//
-//                } else {
-//                    print("Error: \(String(describing: response.result.error))")
-//                    self.bitcoinPriceLabel.text = "Connection Issues"
-//                }
-//            }
-//
-//    }
+    //MARK: - Networking
+    
+    func getBitcoinValue(url: String) {
+        
+        Alamofire
+            .request(url, method: .get)
+            .responseJSON { response in
+                if response.result.isSuccess {
+                    print("Sucess")
+                    let priceJSON: JSON = JSON(response.result.value!)
+                    print(priceJSON)
+                    //self.updatePriceData(json: priceJSON)
+                } else {
+                    print("Error: \(String(describing: response.result.error))")
+                    self.bitcoinPriceLabel.text = "Connection Issues"
+                }
+            }
+
+    }
 //
 //    
 //    
