@@ -85,7 +85,6 @@
 				C3DB7A2F1313AD5E0FB29A3A /* Pods-BitcoinTicker.debug.xcconfig */,
 				EE42E9C120E72A50A04E3404 /* Pods-BitcoinTicker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
