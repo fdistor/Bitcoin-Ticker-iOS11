@@ -59,7 +59,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             .request(url, method: .get)
             .responseJSON { response in
                 if response.result.isSuccess {
-                    print("Sucess")
                     let priceJSON: JSON = JSON(response.result.value!)
                     self.updatePriceData(json: priceJSON)
                 } else {
