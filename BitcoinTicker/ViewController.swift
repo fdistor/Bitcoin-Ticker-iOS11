@@ -24,6 +24,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         currencyPicker.dataSource = self
     }
     
+    // MARK: Picker View Functions
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -43,7 +45,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     
-//    
 //    //MARK: - Networking
 //    /***************************************************************/
 //    
