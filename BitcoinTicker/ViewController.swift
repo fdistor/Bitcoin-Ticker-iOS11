@@ -14,7 +14,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     let baseURL = "https://apiv2.bitcoinaverage.com/indices/global/ticker/BTC"
     let currencyArray = ["AUD", "BRL","CAD","CNY","EUR","GBP","HKD","IDR","ILS","INR","JPY","MXN","NOK","NZD","PLN","RON","RUB","SEK","SGD","USD","ZAR"]
+    let symbolArray = ["$", "R$", "$", "¥", "€", "£", "$", "Rp", "₪", "₹", "¥", "$", "kr", "$", "zł", "lei", "₽", "kr", "$", "$", "R"]
     var finalURL = ""
+    var symbol = ""
 
     //Pre-setup IBOutlets
     @IBOutlet weak var bitcoinPriceLabel: UILabel!
@@ -42,6 +44,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedCurrency = currencyArray[row]
+        
+        symbol = symbolArray[row]
         finalURL = "\(baseURL)\(selectedCurrency)"
         getBitcoinValue(url: finalURL)
     }
@@ -71,7 +75,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func updatePriceData(json : JSON) {
         
         if let priceResult = json["ask"].double {
-            bitcoinPriceLabel.text = String(priceResult)
+            bitcoinPriceLabel.text = symbol + "\(priceResult)"
         } else {
             bitcoinPriceLabel.text = "Currently Unavailable"
         }
