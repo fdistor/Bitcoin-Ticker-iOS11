@@ -57,8 +57,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
                 if response.result.isSuccess {
                     print("Sucess")
                     let priceJSON: JSON = JSON(response.result.value!)
-                    print(priceJSON)
-                    //self.updatePriceData(json: priceJSON)
+                    self.updatePriceData(json: priceJSON)
                 } else {
                     print("Error: \(String(describing: response.result.error))")
                     self.bitcoinPriceLabel.text = "Connection Issues"
